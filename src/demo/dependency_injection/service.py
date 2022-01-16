@@ -13,6 +13,6 @@ def service(name: str):
         logger.info(f"Service {cls.__module__}.{cls.__name__} registered.")
         services[name] = providers.Factory(cls)
 
-        return inject(cls)
+        return cls
 
-    return handler
+    return inject(handler)

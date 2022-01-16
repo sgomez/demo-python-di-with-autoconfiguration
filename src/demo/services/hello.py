@@ -2,7 +2,7 @@ from abc import abstractmethod
 from typing import Final, Optional
 
 from demo.dependency_injection.service import service
-from dependency_injector.wiring import Provide, inject
+from dependency_injector.wiring import Provide
 
 GREETING_SERVICE: Final[str] = "greeting_service"
 
@@ -18,14 +18,12 @@ class AbstractGreetingService:
 
 
 @service(GREETING_SERVICE)
-@inject
 class GreetingService(AbstractGreetingService):
     __default_name: str
 
     def __init__(
         self,
         default_name=Provide["config.demo.name"],
-        config=Provide["config"],
     ) -> None:
         self.__default_name = default_name
 
