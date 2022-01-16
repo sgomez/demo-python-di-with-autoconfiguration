@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "demo"
+version = "0.1.0"
+description = ""
+authors = ["Sergio Gómez <decano@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+dependency-injector = "^4.37.0"
+fastapi = "^0.71.0"
+uvicorn = {extras = ["standard"], version = "^0.16.0"}
+
+[tool.poetry.scripts]
+dev = "demo.kernel:main"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+flake8 = "^4.0.1"
+black = "^21.12b0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
